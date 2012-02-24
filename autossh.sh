@@ -1,12 +1,12 @@
 #! /bin/sh
-TUNNELCONFIG="-R 10022:localhost:22 -R 10080:localhost:80"
-REMOTEUSER="proxy"
+TUNNELCONFIG="-R 9922:localhost:22 -R 9980:localhost:80 -N -i ~/.ssh/id_rsa.sshvpn -o ServerAliveInterval=60"
+REMOTEUSER="sshvpn"
 REMOTEHOST="remotehost.example.tld"
 
 
 while /bin/true; do
 
-ssh -t $TUNNELCONFIG $REMOTEUSER@$REMOTEHOST top -d 5;
+ssh -t $TUNNELCONFIG $REMOTEUSER@$REMOTEHOST ;
 
 sleep 5
 done
