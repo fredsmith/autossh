@@ -1,12 +1,14 @@
-#! /bin/sh
-TUNNELCONFIG="-R 9922:localhost:22 -R 9980:localhost:80 -N -i ~/.ssh/id_rsa.sshvpn -o ServerAliveInterval=60"
-REMOTEUSER="sshvpn"
-REMOTEHOST="remotehost.example.tld"
+#! /bin/bash
 
+if ! [ -f $1 ]; then
+   exit 1;
+fi
+
+source $1
 
 while /bin/true; do
 
-ssh -t $TUNNELCONFIG $REMOTEUSER@$REMOTEHOST ;
+ssh -t $TUNNELCONFIG $REMOTEUSER@$REMOTEHOST $REMOTECOMMAND;
 
 sleep 5
 done
