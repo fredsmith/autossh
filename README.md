@@ -1,10 +1,18 @@
 # autossh
 
+## Installation
+
+check out git repository to ~/autossh
+
 ## Configuration
 
-edit autossh.sh to configure remotehost, remoteuser and tunnel arguments
+copy sample.config to yourname.tunnel, and edit to configure remotehost, remoteuser and tunnel arguments
 
-for tunnel arguments, use -R for ports on the remotehost to map to services running on the network that autossh is running on.  use -L for services on the remote network to map to ports on the system running autossh.
+for tunnel arguments: 
+ - use -R for ports on the remotehost to map to services running on the network that autossh is running on.  
+ - use -L for services on the remote network to map to ports on the system running autossh.
+
+You can put as many .tunnel files as you'd like in your autossh directory, they will all be kept running.
 
 ## Setup crontab
 
